@@ -35,6 +35,9 @@ Non-configurable Parameters
 need to keep track of which block was used least recently
 ● Cache write policy: Simulator uses Write-back Write-allocate(WBWA) policy - this means
 
+![image](https://github.com/Fireborn25/Quine-McCluskey_Simulation/assets/97736756/74f00338-3e87-4815-81f3-33c99395b0e1)
+
+
 ### Observations
 1. When Block size increases, generally access time decreases as now we have more space for storing addresses with
 different tag bits in a single set but as the sizes keep increasing, we see a decrease in access time as more eviction occurs
