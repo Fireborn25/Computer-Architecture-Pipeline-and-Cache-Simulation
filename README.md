@@ -1,5 +1,56 @@
 # Computer Architecture- Pipeline and Cache
 
+## Pipeline
+A. 5 Stage Basic MIPS pipeline without bypassing
+=====================================================================
+Implemented in C++ the basic 5 stage MIPS pipeline — IF (Instruction Fetch), ID (Instruction Decode), EX
+(ALU execute), MEM (memory read/write) and WB (write back to register).
+Our program has 32 registers as a data structure. The control signals, input and output for each
+pipeline stage is implemented as a struct, with a separate function to implement the working of the
+stage. The function for EX stage has support for some basic ALU operations like add, sub, addi, sll,
+srl, and, or, slt etc. assuming instructions have only those ALU operations.
+WB should happen in the first half cycle, and the rest of the stages in the second half cycle. Cycles can
+be implemented as loop iterations. Total cycles will depend on data dependencies among different
+instructions.
+Output should print cycle number, first vs. second half cycle in that cycle number and what each
+pipeline stage is doing in that cycle.
+Implement this program in a C++ file with the name 5stage.cpp. You can test this with instruction pairs,
+as discussed in class. Check total cycles taken by the simulator, vs. calculated with pen and paper. Some
+examples of instruction pairs are given below:
+(i) add $1, $2, $3; lw $4, 8($1)
+(ii) lw $1, 8($2); lw $4, 8($1)
+(iii) lw $1, 8($2); sw $1, 8($3)
+(iv) lw $1, 8($2); add $4, $1, $3
+=====================================================================
+B. 5 Stage Basic MIPS pipeline with bypassing
+=====================================================================
+Implemented 5stage_bypass.cpp, where we forward input to the EX/MEM stages, not just from L3, but
+from L4 and L5. Test this program also with instruction pairs as above, and note the improvements in total
+cycles compared to no bypassing.
+=====================================================================
+C. 7-9 Stage pipeline without and with bypassing
+=====================================================================
+Implemented the 7-9 stage pipeline, with 7 stages for ALU operations and 9 stages for
+load-store operations. Without bypassing source file should be named 79stage.cpp and with bypassing
+source file should be named 79stage_bypass.cpp. Test this program also with instruction pairs as
+above, and note the improvements/degradations in total cycles compared to 5 stage pipeline..
+=====================================================================
+D. Branch prediction for control hazard
+=====================================================================
+Implemented a branch predictor with 2-bit saturating counters and branch history registers (BHR).
+Use 2^14 2-bit saturating counters indexed using 14 LSBs of each branch instruction and a 2 bit
+Branch History Register (BHR) that records the outcomes of the previous 2 branches.
+branchtrace is a trace of branch instructions consisting of the PC at which each branch occurs,
+and whether the branch is Taken(1) or Not Taken(0).
+Predict varying the start state of (a) each 2-bit saturating counter between 00,01,10,11 and (b)
+each BHR also as 00,01,10,11. Predict using only saturating counters, only BHRs and some
+ways of combining the two. For each of these variations, your output file should indicate, for
+each branch in the trace, whether it was predicted as Taken(1) or Not Taken(0). Compute
+branch prediction accuracy of each output file, as (#correct predictions/#total predictions).
+Include these branch prediction accuracies in a table in the PDF report above. Each row in the
+table should mention the prediction strategy and the corresponding accuracy.
+
+
 ## Cache
 We design a simulator for an arbitrary n-way set associative cache in C++. The simulator implements 2 level caches, L1 and L2. The Simulator reads trace files and assigns requests to the L1
 cache. L1 cache sends read/write requests to the L2 cache. L2 cache interacts with DRAM. L1 and L2 caches keep track of their own counters i.e. reads, writes, misses, hits etc. At the end of
