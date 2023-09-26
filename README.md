@@ -1,12 +1,9 @@
 # Computer Architecture- Pipeline and Cache
 
 ## Cache
-We design a simulator for an arbitrary n-way set associative cache in C++. The simulator
-implements 2 level caches, L1 and L2. The Simulator reads trace files and assigns requests to the L1
-cache. L1 cache sends read/write requests to the L2 cache. L2 cache interacts with DRAM. L1
-and L2 caches keep track of their own counters i.e. reads, writes, misses, hits etc. At the end of
-the simulation, for a given trace file, our program should print the stats for both caches on the
-console, as follows:
+We design a simulator for an arbitrary n-way set associative cache in C++. The simulator implements 2 level caches, L1 and L2. The Simulator reads trace files and assigns requests to the L1
+cache. L1 cache sends read/write requests to the L2 cache. L2 cache interacts with DRAM. L1 and L2 caches keep track of their own counters i.e. reads, writes, misses, hits etc. At the end of
+the simulation, for a given trace file, our program should print the stats for both caches on the console, as follows:
 i. number of L1 reads: ____________
 ii. number of L1 read misses:____________
 iii. number of L1 writes: ____________
