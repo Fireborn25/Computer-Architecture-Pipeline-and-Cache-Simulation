@@ -2,7 +2,6 @@
 
 ## Pipeline
 A. 5 Stage Basic MIPS pipeline without bypassing
-=====================================================================
 Implemented in C++ the basic 5 stage MIPS pipeline — IF (Instruction Fetch), ID (Instruction Decode), EX
 (ALU execute), MEM (memory read/write) and WB (write back to register).
 Our program has 32 registers as a data structure. The control signals, input and output for each
@@ -21,22 +20,16 @@ examples of instruction pairs are given below:
 (ii) lw $1, 8($2); lw $4, 8($1)
 (iii) lw $1, 8($2); sw $1, 8($3)
 (iv) lw $1, 8($2); add $4, $1, $3
-=====================================================================
 B. 5 Stage Basic MIPS pipeline with bypassing
-=====================================================================
 Implemented 5stage_bypass.cpp, where we forward input to the EX/MEM stages, not just from L3, but
 from L4 and L5. Test this program also with instruction pairs as above, and note the improvements in total
 cycles compared to no bypassing.
-=====================================================================
 C. 7-9 Stage pipeline without and with bypassing
-=====================================================================
 Implemented the 7-9 stage pipeline, with 7 stages for ALU operations and 9 stages for
 load-store operations. Without bypassing source file should be named 79stage.cpp and with bypassing
 source file should be named 79stage_bypass.cpp. Test this program also with instruction pairs as
 above, and note the improvements/degradations in total cycles compared to 5 stage pipeline..
-=====================================================================
 D. Branch prediction for control hazard
-=====================================================================
 Implemented a branch predictor with 2-bit saturating counters and branch history registers (BHR).
 Use 2^14 2-bit saturating counters indexed using 14 LSBs of each branch instruction and a 2 bit
 Branch History Register (BHR) that records the outcomes of the previous 2 branches.
