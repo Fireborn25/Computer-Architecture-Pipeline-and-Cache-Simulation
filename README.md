@@ -37,6 +37,12 @@ need to keep track of which block was used least recently
 
 ![image](https://github.com/Fireborn25/Quine-McCluskey_Simulation/assets/97736756/74f00338-3e87-4815-81f3-33c99395b0e1)
 
+![image](https://github.com/Fireborn25/Quine-McCluskey_Simulation/assets/97736756/c15cb624-d790-4b6a-8381-dce740dcf955)
+
+![image](https://github.com/Fireborn25/Quine-McCluskey_Simulation/assets/97736756/f362c877-7d0e-42d3-af3a-baa4eecc7201)
+
+
+
 
 ### Observations
 1. When Block size increases, generally access time decreases as now we have more space for storing addresses with
